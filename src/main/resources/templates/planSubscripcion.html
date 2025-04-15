@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	th:replace="~{ plantillaDatos :: layout(~{::section}, ~{::title})}"><head>
+<meta charset="utf-8">
+<title th:text="#{plan.title}">Planes de Subscripción</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<h1 th:text="#{plan.title}">plan.title</h1>
+		<br>
+		<div class="form-group">
+			<span><a th:href="@{/admin/planSubscripcion/new}" class="btn btn-primary" th:text="#{command.nuevo} + ' ' +  #{plan.title}">Nuevo</a></span>
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th th:text="#{registro.nombre}">Nombre</th>
+					<th th:text="#{header.detalle}">Detalle</th>
+					<th th:text="#{texto.finicial}">F.Inicial</th>
+					<th th:text="#{texto.ffinal}">F.Inicial</th>
+					<th th:text="#{texto.periodicidad}">F.Inicial</th>
+					<th th:text="#{texto.precio}">F.Inicial</th>
+					
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="plan : ${plansuscriptions}">
+					<td th:text="${plan.nombre}">ID</td>
+					<td th:text="${plan.descripcion}">ID</td>
+					<td th:text="${#temporals.format(plan.fechaInicial,'dd/MM/yyy')}">ID</td>
+					<td th:text="${#temporals.format(plan.fechaFinal,'dd/MM/yyy')}">ID</td>
+					<td th:text="${plan.periodicidad}">ID</td>
+					<td th:text="${plan.precio}">ID</td>
+					<td><a th:href="@{/admin/planSubscripcion/{id}(id=${plan.id})}" class="btn btn-primary" th:text="#{command.modificar}">Modificar</a>
+					<a th:href="@{/admin/planSubscripcion/delete/{id}(id=${plan.id})}" class="btn btn-danger" th:text="#{command.borrar}">Borrar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</section>
+</body>
+</html>

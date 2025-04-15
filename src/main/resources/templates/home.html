@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{plantilla::layout(~{::section})}">
+<head>
+  <title>titulo</title>
+</head>
+<body>
+  <section>
+	<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <!-- 
+      				<tr >
+					<td >ID</td>
+					<td th:text="${contenido.tipoContenido}">ID</td>
+					<td th:text="${contenido.director}">ID</td>
+					<td th:text="${contenido.actores}">ID</td>
+					<td th:text="${contenido.productora}">ID</td>
+					<td th:text="${#temporals.format(contenido.fechaEstreno, 'yyyy')}">ID</td>
+					<td ><img src="../../img/ejemplo.png"
+th:src="@{${contenido.pathCaratula}}" th:alt-title="#{logo}" /></td>
+					<td><a th:href="@{${pageUrlPrefix} + '/' + ${contenido.id}}" class="btn btn-primary" th:text="#{command.modificar}">Modificar</a>
+					<a th:href="@{${pageUrlPrefix} + '/delete/' + ${contenido.id}}" class="btn btn-danger" th:text="#{command.borrar}">Borrar</a></td>
+				</tr>
+       -->
+      
+      
+        <div class="col" th:each="contenido : ${contenidos}">
+          <div class="card shadow-sm">
+ <!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+  -->
+            <img class="bd-placeholder-img card-img-top" src="../../img/ejemplo.png" th:src="@{${contenido.pathCaratula}}" th:alt-title="#{logo}" />
+            <div class="card-body">
+              <p class="card-text" th:text="${contenido.titulo} + '. Año de estreno: ' + ${#temporals.format(contenido.fechaEstreno, 'yyyy')}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+	     </section>
+    </body>
+</html>

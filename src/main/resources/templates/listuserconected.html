@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	th:replace="~{ plantillaDatos :: layout(~{::section}, ~{::title})}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{usuario.conectado}">Insert title here</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<h1 th:text="#{usuario.title} + 's'">Usuarios</h1>
+		<br>
+		<h4 ><span th:text="#{usuario.title} + ' ' + #{usuario.conectado}"></span>
+			<span sec:authentication="principal.username"></span>
+		</h4>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th th:text="#{registro.nombre}">Nombre</th>
+					<td th:text="#{usuario.loginTime}">usuario</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario : ${users}">
+					<td th:text="${usuario.userName}">usuario</td>
+					<td th:text="${#temporals.format(usuario.loginTime, 'dd/MM/yyyy hh:mm:ss')}">usuario</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+
+</body>
+</html>

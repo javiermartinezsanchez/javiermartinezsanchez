@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{plantilla::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6">
+				<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha modificado correctamente</div>
+				</div>
+
+				<form th:action="@{/admin/artista}" method="post" th:object="${artista}">
+					<div class="form-group">
+						<label class="control-label" for="nombre" th:text="#{registro.nombre} + ':'"> : </label> <input
+							id="nombre" type="text" class="form-control" th:field="*{nombre}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for=nacionalidad th:text="#{texto.nacionalidad} + ':'"></label> <input
+							id="nacionalidad" class="form-control" th:field="*{nacionalidad}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="fechaNacimiento" th:text="#{texto.fnacimiento} + ':'">F.Nacimiento : </label> <input
+							id="fechaNacimiento" type="date" class="form-control" th:field="*{fechaNacimiento}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success" th:text="#{registro.registro}">Registrar</button>
+						
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

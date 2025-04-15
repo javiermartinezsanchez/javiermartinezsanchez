@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	th:replace="~{plantilla::layout(~{::section})}"><head>
+<meta charset="utf-8">
+<title>Artista</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<h1 th:text="#{usuario.title} + 's'">Usuarios</h1>
+		<br>
+		<h4 ><span th:text="#{usuario.title} + ':'"></span>
+			<span sec:authentication="principal.username"></span>
+		</h4>
+		<div class="form-group">
+			<span><a th:href="@{/admin/usuario/newuser}" th:text="usuario.newuser">Nuevo usuario</a></span>
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>ID</th>
+					<th th:text="#{registro.nombre}">Nombre</th>
+					<th th:text="#{texto.nacionalidad}">Nacionalidad</th>
+					<th th:text="#{texto.fnacimiento}">F.Nacimiento</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario : ${users}">
+					<td th:text="${usuario.email}">ID</td>
+					<td th:text="${usuario.nombre}">ID</td>
+					<td th:text="${usuario.apellidos}">ID</td>
+					<td><a th:href="@{/admin/usuario/{id}(id=${usuario.id})}" class="btn btn-primary">Modificar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+</body>
+</html>

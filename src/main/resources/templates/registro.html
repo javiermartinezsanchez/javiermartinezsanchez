@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{plantilla::layout(~{::section})}">
+<head>
+<meta charset="utf-8">
+<title>Registro de usuarios</title>
+
+<body>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6">
+				<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha modificado correctamente</div>
+				</div>
+
+				<h1 th:text="#{registro.registro}">Regístrate</h1>
+				<form th:action="@{/registro}" method="post" th:object="${usuario}">
+					<div class="form-group">
+						<label class="control-label" for="email">Email : </label> <input
+							id="email" type="email" class="form-control" th:field="*{email}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="password">Password : </label> <input
+							type="password" id="password" class="form-control" th:field="*{password}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="nombre" th:text="#{registro.nombre} + ':'"> : </label> <input
+							id="nombre" type="text" class="form-control" th:field="*{nombre}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="apellido" th:text="#{registro.apellido} + ':'"></label> <input
+							id="apellido" class="form-control" th:field="*{apellidos}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="direccion" th:text="#{usuario.direccion} + ':'"></label> <input
+							class="form-control" th:field="*{direccion}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="poblacion" th:text="#{usuario.poblacion} + ':'"></label> <input
+							class="form-control" th:field="*{poblacion}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="provincia" th:text="#{usuario.provincia} + ':'"></label> <input
+							class="form-control" th:field="*{provincia}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="codPostal" th:text="#{usuario.codpostal} + ':'"></label> <input
+							class="form-control" th:field="*{codPostal}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="genero" th:text="#{genero.title} +  #{registro.favorito} + ' :'">Actor : </label>
+					<select th:field="${generos}" th:attr="name='genero'" multiple>
+    					<option th:each="genero : ${generos}" th:value="${genero.id}" th:text="${genero.nombre}">
+    					</option>
+					</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="director" th:text="#{director.title} +  #{registro.favorito} + ' :'">Actor : </label>
+					<select th:field="${directores}" th:attr="name='director'" multiple>
+    					<option th:each="director : ${directores}" th:value="${director.id}" th:text="${director.nombre}">
+    					</option>
+					</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="actor" th:text="#{actor.title} +  #{registro.favorito} + ' :'">Actor : </label>
+					<select th:field="${actores}" th:attr="name='actor'" multiple>
+    					<option th:each="actor : ${actores}" th:value="${actor.id}" th:text="${actor.nombre}">
+    					</option>
+					</select>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success" th:text="#{registro.registro}">Registrar</button>
+						<span th:text="#{registro.msgtologin}">Si estas registrado </span><a th:href="@{/login}">login</a>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

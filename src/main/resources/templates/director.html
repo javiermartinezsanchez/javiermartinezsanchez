@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	th:replace="~{ plantillaDatos :: layout(~{::section}, ~{::title})}">
+<head>
+<meta charset="utf-8">
+<title th:text="#{director.title}">title</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<h1 th:text="#{director.title}">Title</h1>
+		<br>
+		<div class="form-group">
+			<span><a th:href="@{${pageUrlPrefix} +'/new'}" class="btn btn-primary" th:text="#{command.nuevo} + ' ' +  #{director.title}">Nuevo</a></span>
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th th:text="#{registro.nombre}">Nombre</th>
+					<th th:text="#{texto.nacionalidad}">Nacionalidad</th>
+					<th th:text="#{texto.fnacimiento}">F.Nacimiento</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="director : ${directores}">
+					<td th:text="${director.nombre}">ID</td>
+					<td th:text="${director.nacionalidad}">ID</td>
+					<td th:text="${#temporals.format(director.fechaNacimiento,'dd/MM/yyyy')}">ID</td>
+					<td><a th:href="@{${pageUrlPrefix} + '/' + ${director.id}}" class="btn btn-primary" th:text="#{command.modificar}">Modificar</a>
+					<a th:href="@{${pageUrlPrefix} + '/delete/' + ${director.id}}" class="btn btn-danger" th:text="#{command.borrar}">Borrar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</section>
+</body>
+</html>

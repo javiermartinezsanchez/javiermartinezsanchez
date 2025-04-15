@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{plantilla::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+	<div class="container text-center">
+		<div class="mx-auto col-10 card">
+			<div class="card-header">
+				<h4 th:text="${error}">Internal error</h4>
+			</div>
+			<div class="card-body">
+			<img src="/img/500.png"/>
+			</div>
+			<div class="card-footer">
+				<span th:text="${message}"></span><br/>
+				<span th:text="${exception}">Trace</span><br/>
+			</div>
+			<div class="form-group">
+				<a th:href="@{/home}" class="btn btn-danger" th:text="#{text.irainicio}">Cancelar</a>					
+					
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{plantilla::layout(~{::section})}">
+<head>
+<meta charset="utf-8">
+<title th:text="#{genero.title}">Formulario Detalle</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha modificado correctamente</div>
+				</div>
+
+				<h1 th:text="#{estado.title}">Estado del pedido</h1>
+				<form th:action="@{/admin/estado}" method="post" th:object="${detalle}">
+					<div class="form-group">
+					<input id="id" type = "hidden" th:field="*{id}">
+						<label class="control-label" for="nombre" th:text="#{registro.nombre} + ':'">Nombre : </label> <input
+							id="nombre" type="text" class="form-control" th:field="*{nombre}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success" th:text="#{registro.registro}">Grabar</button>
+						<a th:href="@{/admin/estado}" class="btn btn-danger" th:text="#{command.cancelar}">Cancelar</a></div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</section>	
+</body>
+</html>

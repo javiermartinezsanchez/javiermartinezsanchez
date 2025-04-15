@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{plantilla::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6">
+				<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha modificado correctamente</div>
+				</div>
+				<h1 th:text="#{plan.title}">título</h1>
+				<form th:action="@{/admin/planSubscripcion}" method="post" th:object="${planSubscripcion}">
+				<input id="id" type="hidden" th:field="*{id}">
+					<div class="form-group">
+						<label class="control-label" for="nombre" th:text="#{registro.nombre} + ':'"> : </label> <input
+							id="nombre" type="text" class="form-control" th:field="*{nombre}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for=descripcion th:text="#{header.detalle} + ':'"></label> <input
+							id="descripcion" class="form-control" th:field="*{descripcion}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="fechaInicial" th:text="#{texto.finicial} + ':'">Fecha : </label> <input
+							id="fechaInicial" type="date" class="form-control" name="fechaInicial" 
+							th:attr="value=${#temporals.format(planSubscripcion.fechaInicial,'yyyy-MM-dd')}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="fechaFinal" th:text="#{texto.ffinal} + ':'">Fecha : </label> <input
+							id="fechaFinal" type="date" class="form-control" name="fechaFinal"
+							th:attr="value=${#temporals.format(planSubscripcion.fechaFinal,'yyyy-MM-dd')}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="periodicidad" th:text="#{texto.periodicidad} + ':'">Periodicidad : </label> <input
+							id="periodicidad" type="text" class="form-control" th:field="*{periodicidad}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="precio" th:text="#{texto.precio} + ':'">Precio : </label> <input
+							id="precio" type="text" class="form-control" th:field="*{precio}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success" th:text="#{registro.registro}">Registrar</button>
+						<a th:href="@{/admin/planSubscripcion}" class="btn btn-danger" th:text="#{command.cancelar}">Cancelar</a>					
+						
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
