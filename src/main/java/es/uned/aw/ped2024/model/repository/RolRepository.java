@@ -2,7 +2,7 @@ package es.uned.aw.ped2024.model.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import es.uned.aw.ped2024.model.entities.Role;
+import es.uned.aw.ped2025.model.entities.Role;
 
 
 public interface RolRepository extends JpaRepository<Role, Long> {

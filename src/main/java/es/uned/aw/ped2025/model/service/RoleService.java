@@ -1,8 +1,8 @@
-package es.uned.aw.ped2024.model.service;
+package es.uned.aw.ped2025.model.service;
 
 import java.util.List;
 
-import es.uned.aw.ped2024.model.entities.Role;
+import es.uned.aw.ped2025.model.entities.Role;
 
 /**
  * Interfaz del servico de Role

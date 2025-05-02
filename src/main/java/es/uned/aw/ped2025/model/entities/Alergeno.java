@@ -7,11 +7,7 @@ import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 
 // https://www.baeldung.com/java-hibernate-uuid-primary-key
 @Entity
@@ -25,24 +21,10 @@ public class Alergeno {
 	@Column(nullable=false, length=150)
 	private String rutaImagen;
 	
-//	@ManyToMany
-//	@JoinTable(
-//			name="socios_generos",
-//			joinColumns=@JoinColumn(name="id_genero",
-//			foreignKey=@ForeignKey(name="FK_genero"),
-//			nullable=false),
-//			inverseJoinColumns=@JoinColumn(name="id_usuario",
-//			foreignKey=@ForeignKey(name="FK_usuario"),
-//			nullable=false)
-//
-//			)
-//
-//	private Set<Cliente> preferenciasocios;
 	public Alergeno() {}
 	public Alergeno(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public UUID getId() {
 		return id;

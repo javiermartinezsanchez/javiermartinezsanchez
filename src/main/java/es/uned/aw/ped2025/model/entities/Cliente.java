@@ -1,4 +1,4 @@
-package es.uned.aw.ped2024.model.entities;
+package es.uned.aw.ped2025.model.entities;
 
 
 import jakarta.persistence.Column;

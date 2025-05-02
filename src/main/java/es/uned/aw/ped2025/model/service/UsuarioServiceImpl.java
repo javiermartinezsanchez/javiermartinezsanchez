@@ -1,4 +1,4 @@
-package es.uned.aw.ped2024.model.service;
+package es.uned.aw.ped2025.model.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,12 +12,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import es.uned.aw.ped2024.controller.dto.UsuarioRegistroDTO;
-import es.uned.aw.ped2024.exception.UserAlreadyExistException;
-import es.uned.aw.ped2024.model.entities.Role;
-import es.uned.aw.ped2024.model.entities.Usuario;
-import es.uned.aw.ped2024.model.repository.RoleRepository;
-import es.uned.aw.ped2024.model.repository.UsuarioRepository;
+import es.uned.aw.ped2025.controller.dto.UsuarioRegistroDTO;
+import es.uned.aw.ped2025.exception.UserAlreadyExistException;
+import es.uned.aw.ped2025.model.entities.Role;
+import es.uned.aw.ped2025.model.entities.Usuario;
+import es.uned.aw.ped2025.model.repository.RoleRepository;
+import es.uned.aw.ped2025.model.repository.UsuarioRepository;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {

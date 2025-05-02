@@ -13,13 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.uned.aw.ped2024.model.entities.Actor;
-import es.uned.aw.ped2024.model.entities.Role;
-import es.uned.aw.ped2024.model.entities.Usuario;
-import es.uned.aw.ped2024.model.service.RoleService;
-import es.uned.aw.ped2024.model.service.UsuarioService;
-import es.uned.aw.ped2024.config.ActiveUserStore;
-import es.uned.aw.ped2024.controller.dto.CastingDTO;
+import es.uned.aw.ped2025.model.entities.Role;
+import es.uned.aw.ped2025.model.entities.Usuario;
+import es.uned.aw.ped2025.model.service.RoleService;
+import es.uned.aw.ped2025.model.service.UsuarioService;
+import es.uned.aw.ped2025.config.ActiveUserStore;
 
 @Controller
 public class AdminUserController {
