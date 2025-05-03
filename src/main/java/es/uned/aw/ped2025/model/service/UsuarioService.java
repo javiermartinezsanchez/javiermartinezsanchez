@@ -77,6 +77,7 @@ public interface UsuarioService {
 	 * Actualizamos información de un usuario.
 	 * 
 	 * @param usuario a guardar.
+	 * @roles Listado de roles asignados al usuario
 	 */
 	void saveUsuario(Usuario usuario, List<Long> roles);
 }
