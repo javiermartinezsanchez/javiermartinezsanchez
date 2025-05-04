@@ -14,16 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import es.uned.aw.ped2024.controller.dto.UsuarioRegistroDTO;
-import es.uned.aw.ped2024.model.entities.Actor;
+import es.uned.aw.ped2025.controller.dto.UsuarioRegistroDTO;
 import es.uned.aw.ped2024.model.entities.Director;
-import es.uned.aw.ped2024.model.entities.Alergeno;
-import es.uned.aw.ped2024.model.entities.Role;
-import es.uned.aw.ped2024.model.service.ActorService;
-import es.uned.aw.ped2024.model.service.DirectorService;
+import es.uned.aw.ped2025.model.entities.Alergeno;
+import es.uned.aw.ped2025.model.entities.Role;
 import es.uned.aw.ped2024.model.service.GeneroService;
 import es.uned.aw.ped2024.model.service.SocioService;
-import es.uned.aw.ped2024.model.service.UsuarioService;
+import es.uned.aw.ped2025.model.service.UsuarioService;
 
 @Controller
 
@@ -34,15 +31,6 @@ public class RegistroUsuarioControlador {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
-	@Autowired
-	private ActorService actorService;
-	
-	@Autowired
-	private DirectorService directorService;
-	
-	@Autowired
-	private GeneroService generoService;
 	
 	
 	@ModelAttribute("usuario")

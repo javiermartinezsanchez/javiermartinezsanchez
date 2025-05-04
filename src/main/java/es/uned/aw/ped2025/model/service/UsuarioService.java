@@ -1,12 +1,12 @@
-package es.uned.aw.ped2024.model.service;
+package es.uned.aw.ped2025.model.service;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import es.uned.aw.ped2024.controller.dto.UsuarioRegistroDTO;
-import es.uned.aw.ped2024.model.entities.Role;
-import es.uned.aw.ped2024.model.entities.Usuario;
+import es.uned.aw.ped2025.controller.dto.UsuarioRegistroDTO;
+import es.uned.aw.ped2025.model.entities.Role;
+import es.uned.aw.ped2025.model.entities.Usuario;
 
 public interface UsuarioService {
 	
@@ -77,6 +77,7 @@ public interface UsuarioService {
 	 * Actualizamos información de un usuario.
 	 * 
 	 * @param usuario a guardar.
+	 * @roles Listado de roles asignados al usuario
 	 */
 	void saveUsuario(Usuario usuario, List<Long> roles);
 }
