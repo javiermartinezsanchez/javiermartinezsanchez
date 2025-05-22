@@ -14,23 +14,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.uned.aw.ped2024.controller.dto.CastingDTO;
-import es.uned.aw.ped2024.model.entities.Actor;
-import es.uned.aw.ped2024.model.service.ActorService;
+import es.uned.aw.ped2025.controller.dto.DrinkSizeDTO;
+import es.uned.aw.ped2025.model.service.DrinkSizeService;
 
 /**
  *   Controlador de la entidad Actor
  */
 @Controller
-@RequestMapping("/admin/actor")
-public class ArtistaController {
+@RequestMapping("/admin/drinksize")
+public class DrinkSizeController {
 
 	@Autowired
-	private ActorService servicio;
+	private DrinkSizeService servicio;
 
-	@ModelAttribute("actor")
-	public CastingDTO nuevoActor() {
-		return new CastingDTO();
+	@ModelAttribute("drinkSize")
+	public DrinkSizeDTO nuevo() {
+		return new DrinkSizeDTO();
 	}
 	@GetMapping
 	public String actores(Model modelo) {
@@ -42,39 +41,38 @@ public class ArtistaController {
 										@RequestParam("sortField") String sortField, 
 										@RequestParam("sortDirection") String sortDirection, 
 										Model modelo) {
-		Page<Actor> actores = servicio.findAllPaginado(pagNum, 5, sortField, sortDirection);
-
-		modelo.addAttribute("actores", listActor2DTO(actores.getContent()));
-		modelo.addAttribute("totalItems", actores.getTotalElements());
-		modelo.addAttribute("totalPaginas", actores.getTotalPages());
+		Page<DrinkSizeDTO> listado = servicio.findAllPaginado(pagNum, 5, sortField, sortDirection);
+		modelo.addAttribute("listado", listado.getContent());
+		modelo.addAttribute("totalItems", listado.getTotalElements());
+		modelo.addAttribute("totalPaginas", listado.getTotalPages());
 		modelo.addAttribute("currentPag", pagNum);
 		modelo.addAttribute("sortField", sortField);
 		modelo.addAttribute("sortDirection", sortDirection);
 		modelo.addAttribute("reverseSortDir", sortDirection.equals("asc") ? "desc" : "asc");
-		modelo.addAttribute("pageUrlPrefix", "/admin/actor");
+		modelo.addAttribute("pageUrlPrefix", "/admin/drinksize");
 
 		return "actor";
 	}
 	@PostMapping
-	public String updateArtista(@ModelAttribute("actor") CastingDTO castingDTO) {
-		servicio.save(castingDTO);
-		return "redirect:/admin/actor";
+	public String update(@ModelAttribute("actor") DrinkSizeDTO drinkSizeDTO) {
+		servicio.save(drinkSizeDTO);
+		return "redirect:/admin/drinksize";
 	}
 	@GetMapping("/new")
-	public String newActor() {
-		return "actor_det";
+	public String newDS() {
+		return "drinksize_det";
 		
 	}
 	@GetMapping("/{id}")
-	public String getActor(Model modelo, @PathVariable("id") Long id) {
-		modelo.addAttribute("actor", servicio.getActor(id));
-		return "actor_det";
-	}
+	public String get(Model modelo, @PathVariable("id") Long id) {
+		modelo.addAttribute("drinkSize", servicio.getDrinkSize(id));
+		return "drinksize_det";
+	} 
 	@GetMapping("/delete/{id}")
-	public String deleteActor(Model modelo, @PathVariable("id") Long id) {
-		servicio.deleteActor(id);
-		return "actor";
+	public String deleteDrinkSize(Model modelo, @PathVariable("id") Long id) {
+		servicio.delete(id);
+		return "drinkSize";
 	}
-	private List<CastingDTO> listActor2DTO(List<Actor> lista){
-		return lista.stream().map(CastingDTO::new).collect(Collectors.toList());	}
+	//private List<DrinkSizeDTO> listDrinkSize2DTO(List<DrinkSize> lista){
+	//	return lista.stream().map(DrinkSizeDTO::new).collect(Collectors.toList());	}
 }

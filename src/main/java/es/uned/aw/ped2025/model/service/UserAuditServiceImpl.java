@@ -1,4 +1,4 @@
-package es.uned.aw.ped2024.model.service;
+package es.uned.aw.ped2025.model.service;
 
 import java.time.LocalDateTime;
 
@@ -9,8 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import es.uned.aw.ped2024.model.entities.UserAudit;
-import es.uned.aw.ped2024.model.repository.UserAuditRepository;
+import es.uned.aw.ped2025.model.entities.UserAudit;
+import es.uned.aw.ped2025.model.repository.UserAuditRepository;
 @Service
 public class UserAuditServiceImpl implements UserAuditService {
 

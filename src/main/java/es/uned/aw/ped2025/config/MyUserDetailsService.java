@@ -9,9 +9,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.uned.aw.ped2024.model.entities.Role;
-import es.uned.aw.ped2024.model.entities.Usuario;
-import es.uned.aw.ped2024.model.repository.UsuarioRepository;
+import es.uned.aw.ped2025.model.entities.Role;
+import es.uned.aw.ped2025.model.entities.Usuario;
+import es.uned.aw.ped2025.model.repository.UsuarioRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -18,8 +18,8 @@ import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import es.uned.aw.ped2024.model.entities.Usuario;
-import es.uned.aw.ped2024.model.service.UserAuditService;
+import es.uned.aw.ped2025.model.entities.Usuario;
+import es.uned.aw.ped2025.model.service.UserAuditService;
 /**
  * Handler cuando el login sea correcto.
  * 

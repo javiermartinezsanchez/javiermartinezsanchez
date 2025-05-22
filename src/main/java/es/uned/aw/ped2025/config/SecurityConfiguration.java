@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import es.uned.aw.ped2024.model.repository.UsuarioRepository;
+import es.uned.aw.ped2025.model.repository.UsuarioRepository;
 
 @Configuration
 public class SecurityConfiguration {

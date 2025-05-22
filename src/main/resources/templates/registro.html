@@ -59,27 +59,6 @@
 							required autofocus="autofocus">
 					</div>
 					<div class="form-group">
-						<label class="control-label" for="genero" th:text="#{genero.title} +  #{registro.favorito} + ' :'">Actor : </label>
-					<select th:field="${generos}" th:attr="name='genero'" multiple>
-    					<option th:each="genero : ${generos}" th:value="${genero.id}" th:text="${genero.nombre}">
-    					</option>
-					</select>
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="director" th:text="#{director.title} +  #{registro.favorito} + ' :'">Actor : </label>
-					<select th:field="${directores}" th:attr="name='director'" multiple>
-    					<option th:each="director : ${directores}" th:value="${director.id}" th:text="${director.nombre}">
-    					</option>
-					</select>
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="actor" th:text="#{actor.title} +  #{registro.favorito} + ' :'">Actor : </label>
-					<select th:field="${actores}" th:attr="name='actor'" multiple>
-    					<option th:each="actor : ${actores}" th:value="${actor.id}" th:text="${actor.nombre}">
-    					</option>
-					</select>
-					</div>
-					<div class="form-group">
 						<button type="submit" class="btn btn-success" th:text="#{registro.registro}">Registrar</button>
 						<span th:text="#{registro.msgtologin}">Si estas registrado </span><a th:href="@{/login}">login</a>
 					</div>
