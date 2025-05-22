@@ -1,4 +1,4 @@
-package es.uned.aw.ped2024.model.service;
+package es.uned.aw.ped2025.model.service;
 
 import java.security.Principal;
 import java.util.List;
@@ -7,9 +7,6 @@ import org.springframework.data.domain.Page;
 
 import es.uned.aw.ped2025.controller.ChangePasswordRequest;
 import es.uned.aw.ped2025.controller.dto.UsuarioRegistroDTO;
-import es.uned.aw.ped2025.model.entities.Actor;
-import es.uned.aw.ped2025.model.entities.Director;
-import es.uned.aw.ped2025.model.entities.Genero;
 import es.uned.aw.ped2025.model.entities.Cliente;
 
 public interface SocioService {
@@ -31,10 +28,7 @@ public interface SocioService {
 	 */
 	public Page<Cliente> findAllPaginado(int pagNnum, int pagSize, String sortField, String sortDirection);
 
-	public Cliente newSocio(UsuarioRegistroDTO userDTO, 
-			List<Alergeno> generos, 
-			List<Actor> actores,
-			List<Director> directores) ;
+	public Cliente newSocio(UsuarioRegistroDTO userDTO) ;
 
 	public void changePassword(ChangePasswordRequest request, Principal actualUser);
 }

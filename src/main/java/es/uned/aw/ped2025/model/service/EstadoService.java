@@ -11,7 +11,7 @@ public interface EstadoService {
 	
 	public Estado save(EstadoDTO actorDTO);
 	
-	public List<Estado> list();
+	public List<EstadoDTO> list();
 	
 	public EstadoDTO get(Integer id);
 
@@ -24,7 +24,7 @@ public interface EstadoService {
 	 * @param sortDirection	Dirección "ASC" o "DESC"
 	 * @return	Una sublista (Page) de {@link Estado}
 	 */
-	public Page<Estado> findAllPaginado(int pagNnum, int pagSize, String sortField, String sortDirection);
+	public Page<EstadoDTO> findAllPaginado(int pagNnum, int pagSize, String sortField, String sortDirection);
 	
 	public void deleteEstado(Integer id);
 	

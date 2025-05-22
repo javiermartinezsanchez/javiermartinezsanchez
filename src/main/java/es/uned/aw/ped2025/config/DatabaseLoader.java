@@ -16,30 +16,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import es.uned.aw.ped2024.model.entities.Contenido;
-import es.uned.aw.ped2024.model.entities.Director;
-import es.uned.aw.ped2024.model.entities.Estado;
-import es.uned.aw.ped2024.model.entities.Alergeno;
-import es.uned.aw.ped2024.model.entities.PlanSubscripcion;
-import es.uned.aw.ped2024.model.entities.Role;
-import es.uned.aw.ped2024.model.entities.TipoContenido;
-import es.uned.aw.ped2024.model.entities.Usuario;
-import es.uned.aw.ped2024.model.repository.ActorRepository;
-import es.uned.aw.ped2024.model.repository.ContenidoRepository;
-import es.uned.aw.ped2024.model.repository.DirectorRepository;
-import es.uned.aw.ped2024.model.repository.EstadoRepository;
-import es.uned.aw.ped2024.model.repository.GeneroRepository;
-import es.uned.aw.ped2024.model.repository.PlanSubscripcionRepository;
-import es.uned.aw.ped2024.model.repository.RoleRepository;
-import es.uned.aw.ped2024.model.repository.UsuarioRepository;
+import es.uned.aw.ped2025.model.entities.Estado;
+import es.uned.aw.ped2025.model.entities.Alergeno;
+import es.uned.aw.ped2025.model.entities.Role;
+import es.uned.aw.ped2025.model.entities.Usuario;
+import es.uned.aw.ped2025.model.repository.EstadoRepository;
+import es.uned.aw.ped2025.model.repository.RoleRepository;
+import es.uned.aw.ped2025.model.repository.UsuarioRepository;
 
 /**
  *    Carga inicial de datos de prueba:
  *    
  *    <ul><li>Usuarios</li>
  *    <li>Roles</li>
- *    <li>Artistas</li>
- *    <li>Directores</li>
+ *    <li>Estados</li>
+ *    <li>Alergenos</li>
  *    <li>Generos</li>
  *    <li>Contenidos</li>
  *    <li>Subscriptores</li></li>

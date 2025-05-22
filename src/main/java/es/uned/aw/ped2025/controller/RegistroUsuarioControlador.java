@@ -15,11 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.uned.aw.ped2025.controller.dto.UsuarioRegistroDTO;
-import es.uned.aw.ped2024.model.entities.Director;
-import es.uned.aw.ped2025.model.entities.Alergeno;
 import es.uned.aw.ped2025.model.entities.Role;
-import es.uned.aw.ped2024.model.service.GeneroService;
-import es.uned.aw.ped2024.model.service.SocioService;
+import es.uned.aw.ped2025.model.service.SocioService;
 import es.uned.aw.ped2025.model.service.UsuarioService;
 
 @Controller
@@ -39,19 +36,14 @@ public class RegistroUsuarioControlador {
 	}
 	@GetMapping("/registro")
 	public String mostrarFormularioDeRegistro(Model modelo) {
-		modelo.addAttribute("actores", actorService.listActor());
-		modelo.addAttribute("directores", directorService.listarDirector());
-		modelo.addAttribute("generos", generoService.listarGenero());
 		return "registro";
 	}
 	
 	@PostMapping("/registro")
-	public String registrarCuentaDeUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO,
-			@ModelAttribute("generos") List<Alergeno> generos,
-			@ModelAttribute("actores") List<Actor> actores,
-			@ModelAttribute("directores") List<Director> directores) {
+	public String registrarCuentaDeUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO
+			) {
 		registroDTO.setPassword(passwordEncoder.encode(registroDTO.getPassword()));
-		usuarioService.newSocio(registroDTO, generos, actores, directores);
+		usuarioService.newSocio(registroDTO);
 		return "redirect:/registro?exito";
 	}
 	

@@ -13,8 +13,8 @@
 				<div th:if=${param.exito}>
 					<div class="alert alert-info">Se ha modificado correctamente</div>
 				</div>
-				<h1 th:text="#{actor.title}">título</h1>
-				<form th:action="@{/admin/actor}" method="post" th:object="${actor}">
+				<h1 th:text="#{drinksize.title}">Tamaño</h1>
+				<form th:action="@{/admin/drinksize}" method="post" th:object="${drinkSize}">
 				<input id="id" type="hidden" th:field="*{id}"/>
 					<div class="form-group">
 						<label class="control-label" for="nombre" th:text="#{registro.nombre} + ':'"> : </label> <input
@@ -23,19 +23,8 @@
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for=nacionalidad th:text="#{texto.nacionalidad} + ':'"></label> <input
-							id="nacionalidad" class="form-control" th:field="*{nacionalidad}"
-							required autofocus="autofocus"/>
-					</div>
-
-					<div class="form-group">
-						<label class="control-label" for="fechaNacimiento" th:text="#{texto.fnacimiento} + ':'">F.Nacimiento : </label> <input
-							id="fechaNacimiento" type="date" class="form-control" name="fechaNacimiento" th:attr="value=${#temporals.format(actor.fechaNacimiento,'yyyy-MM-dd')}"
-							required autofocus="autofocus"/>
-					</div>
-					<div class="form-group">
 						<button type="submit" class="btn btn-success" th:text="#{registro.registro}">Registrar</button>
-						<a th:href="@{/admin/actor}" class="btn btn-danger" th:text="#{command.cancelar}">Cancelar</a>					
+						<a th:href="@{/admin/drinksize}" class="btn btn-danger" th:text="#{command.cancelar}">Cancelar</a>					
 						
 					</div>
 				</form>

@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.uned.aw.ped2024.model.entities.ListaRepro;
-import es.uned.aw.ped2024.model.service.ListaReproService;
+import es.uned.aw.ped2025.controller.dto.PedidoDTO;
+import es.uned.aw.ped2025.model.service.PedidoService;
 /**
- * Controlador de la lista de reproducción de un Socio
+ * Controlador de los pedidos
  * 
  * 
  */
 @Controller
-@RequestMapping("/listareproduccion")
-public class ListaReproController {
+@RequestMapping("/pedido")
+public class PedidoController {
 
 	@Autowired
-	ListaReproService listaService;
+	PedidoService pedidoService;
 	
 	@GetMapping
 	public String listaRepro(Model modelo) {
@@ -42,16 +42,16 @@ public class ListaReproController {
 										@RequestParam("sortField") String sortField, 
 										@RequestParam("sortDirection") String sortDirection, 
 										Model modelo) {
-		Page<ListaRepro> contenidos = listaService.findAllPaginado(pagNum, 5, sortField, sortDirection);
+		Page<PedidoDTO> pedidos = pedidoService.findAllPaginado(pagNum, 5, sortField, sortDirection);
 
-		modelo.addAttribute("contenidos", contenidos.getContent());
-		modelo.addAttribute("totalItems", contenidos.getTotalElements());
-		modelo.addAttribute("totalPaginas", contenidos.getTotalPages());
+		modelo.addAttribute("pedidos", pedidos.getContent());
+		modelo.addAttribute("totalItems", pedidos.getTotalElements());
+		modelo.addAttribute("totalPaginas", pedidos.getTotalPages());
 		modelo.addAttribute("currentPag", pagNum);
 		modelo.addAttribute("sortField", sortField);
 		modelo.addAttribute("sortDirection", sortDirection);
 		modelo.addAttribute("reverseSortDir", sortDirection.equals("asc") ? "desc" : "asc");
-		modelo.addAttribute("pageUrlPrefix", "/listareproduccion/contenido");
+		modelo.addAttribute("pageUrlPrefix", "/pedido/contenido");
 
 		return "listarepro";
 	}

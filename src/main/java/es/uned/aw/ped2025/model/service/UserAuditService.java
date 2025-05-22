@@ -1,8 +1,8 @@
-package es.uned.aw.ped2024.model.service;
+package es.uned.aw.ped2025.model.service;
 
 import org.springframework.data.domain.Page;
 
-import es.uned.aw.ped2024.model.entities.UserAudit;
+import es.uned.aw.ped2025.model.entities.UserAudit;
 
 public interface UserAuditService {
 

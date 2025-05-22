@@ -1,4 +1,4 @@
-package es.uned.aw.ped2024.model.service;
+package es.uned.aw.ped2025.model.service;
 
 import java.security.Principal;
 import java.util.List;
@@ -12,14 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import es.uned.aw.ped2024.controller.ChangePasswordRequest;
-import es.uned.aw.ped2024.controller.dto.UsuarioRegistroDTO;
-import es.uned.aw.ped2024.model.entities.Actor;
-import es.uned.aw.ped2024.model.entities.Director;
-import es.uned.aw.ped2024.model.entities.Alergeno;
-import es.uned.aw.ped2024.model.entities.Cliente;
-import es.uned.aw.ped2024.model.entities.Usuario;
-import es.uned.aw.ped2024.model.repository.ClienteRepository;
+import es.uned.aw.ped2025.controller.ChangePasswordRequest;
+import es.uned.aw.ped2025.controller.dto.UsuarioRegistroDTO;
+import es.uned.aw.ped2025.model.entities.Cliente;
+import es.uned.aw.ped2025.model.entities.Usuario;
+import es.uned.aw.ped2025.model.repository.ClienteRepository;
 
 @Service
 public class SocioServiceImpl implements SocioService {
@@ -36,8 +33,7 @@ public class SocioServiceImpl implements SocioService {
 	}
 
 	@Override
-	public Cliente newSocio(UsuarioRegistroDTO userDTO, List<Alergeno> generos, List<Actor> actores,
-			List<Director> directores) {
+	public Cliente newSocio(UsuarioRegistroDTO userDTO) {
 		// TODO Auto-generated method stub
 		return null;
 	}

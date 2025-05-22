@@ -1,11 +1,11 @@
-package es.uned.aw.ped2024.model.repository;
+package es.uned.aw.ped2025.model.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import es.uned.aw.ped2024.model.entities.Artista;
+import es.uned.aw.ped2025.model.entities.DrinkSize;
 
-public interface ArtistaRepository extends JpaRepository<Artista, Long> {
-	Artista findByNombre(String name);
+public interface DrinkSizeRepository extends JpaRepository<DrinkSize, Long> {
+	DrinkSize findByNombre(String name);
 	
 }
 

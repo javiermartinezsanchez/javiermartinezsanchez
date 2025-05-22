@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import es.uned.aw.ped2024.model.service.ContenidoService;
+import es.uned.aw.ped2025.model.service.MenuService;
 
 /**
  * Controlador principal de inicio.
@@ -20,11 +20,11 @@ import es.uned.aw.ped2024.model.service.ContenidoService;
 public class HomeController {
 	
 	@Autowired 
-	private ContenidoService contenidoService;
+	private MenuService menuService;
 	
 	@GetMapping({"/","/home"})
 	public String handleAnonimousHome(Model modelo) {
-		modelo.addAttribute("contenidos", contenidoService.listContenido());
+		modelo.addAttribute("listaopciones", menuService.listContenido());
 		return "home";
 	}
 
